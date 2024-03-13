@@ -37,6 +37,19 @@ const handleProgressBar = () => {
 	const activeSteps = document.querySelectorAll('.active-step');
 
 	progressBar.style.width = ((activeSteps.length - 1) / (steps.length - 1)) * 100 + '%';
+
+	handleButtons();
+};
+
+const handleButtons = () => {
+	if (currentStep === 1) {
+		prevBtn.disabled = true;
+	} else if (currentStep === steps.length) {
+		nextBtn.disabled = true;
+	} else {
+		prevBtn.disabled = false;
+		nextBtn.disabled = false;
+	}
 };
 
 nextBtn.addEventListener('click', handleNextBtn);
