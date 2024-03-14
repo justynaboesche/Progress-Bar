@@ -39,6 +39,7 @@ const handleProgressBar = () => {
 	progressBar.style.width = ((activeSteps.length - 1) / (steps.length - 1)) * 100 + '%';
 
 	handleButtons();
+	handleFormPage();
 };
 
 const handleButtons = () => {
@@ -50,6 +51,16 @@ const handleButtons = () => {
 		prevBtn.disabled = false;
 		nextBtn.disabled = false;
 	}
+};
+
+const handleFormPage = () => {
+	formPages.forEach(page => {
+		if (currentStep == page.dataset.number) {
+			page.classList.add('active-page');
+		} else {
+			page.classList.remove('active-page');
+		}
+	});
 };
 
 nextBtn.addEventListener('click', handleNextBtn);
